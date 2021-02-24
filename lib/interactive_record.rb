@@ -54,6 +54,7 @@ class InteractiveRecord
   end
   
   def self.find_by(name:, grade:) 
+    binding.pry
    sql = "SELECT * FROM #{self.table_name} WHERE name = ? AND grade = ? LIMIT 1" 
    DB[:conn].execute(sql, name, grade)
   end 
