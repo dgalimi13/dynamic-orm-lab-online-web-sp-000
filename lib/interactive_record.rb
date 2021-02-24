@@ -56,9 +56,9 @@ class InteractiveRecord
   
   def self.find_by(hash) 
     binding.pry
-  value = hash.values[0].is_a? Integer ? hash.values[0] 
-   sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys[0]} = ? LIMIT 1" 
-   DB[:conn].execute(sql, name, grade)
+  value = hash.values[0].is_a? Integer ? hash.values[0] : hash.values
+   sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys[0]} = #{value} LIMIT 1" 
+   DB[:conn].execute(sql)
   end 
   
   
