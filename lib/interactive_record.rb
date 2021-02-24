@@ -56,7 +56,7 @@ class InteractiveRecord
   
   def self.find_by(hash) 
     binding.pry
-
+  
    sql = "SELECT * FROM #{self.table_name} WHERE #{hash.keys[0]} = ? LIMIT 1" 
    DB[:conn].execute(sql, name, grade)
   end 
